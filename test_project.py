@@ -1,4 +1,4 @@
-from project import hangman, get_word, display_word, guess, selected_word
+from project import hangman, get_word, display_word, guess
 
 
 def test_get_word():
@@ -13,7 +13,6 @@ def test_get_word():
 
 
 def test_display_word():
-    global selected_word
     selected_word = "apple"
     
     # Test when no guesses have been made
@@ -31,7 +30,6 @@ def test_display_word():
 
 
 def test_guess():
-    global selected_word
     selected_word = "apple"
     
     # Test with correct guesses

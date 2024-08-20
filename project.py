@@ -54,17 +54,12 @@ HANGMANPICS = [r'''
         |
     =========''']
 
-selected_word = ""
-progress = ""
-tries = 0
-
 
 def hangman(i=0):
     return HANGMANPICS[i]
 
 
 def get_word():
-    global selected_word
     web2lowerset = get_english_words_set(['web2'], lower=True)
     word_list = list(web2lowerset)
     
@@ -77,16 +72,10 @@ def get_word():
 
 
 def display_word(selected_word, guesses=None):
-    global progress
     if guesses is None:
-        guesses = ""
-        
-    if not guesses:
-        progress = "_" * len(selected_word)
-    else:
-        progress = ''.join([letter if letter in guesses else '_' for letter in selected_word])
+        guesses = set()
     
-    return progress
+    return ''.join([letter if letter in guesses else '_' for letter in selected_word])
 
 
 def guess(selected_word, letter):
@@ -94,10 +83,9 @@ def guess(selected_word, letter):
 
 
 def main():
-    global tries
-    global progress
-    
-    get_word()
+    tries = 0
+    selected_word = get_word()
+    progress = "_" * len(selected_word)
     
     print(hangman() + "\n")
     print(display_word(selected_word) + "\n")
@@ -114,8 +102,9 @@ def main():
         guessed_letters.add(guess_letter)
         
         if guess(selected_word, guess_letter):
+            progress = display_word(selected_word, guessed_letters)
             print(hangman(tries) + "\n")
-            print(display_word(selected_word, guessed_letters) + "\n")
+            print(progress + "\n")
         else:
             tries += 1
             print(hangman(tries) + "\n")
