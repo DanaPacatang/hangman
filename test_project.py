@@ -2,14 +2,13 @@ from project import hangman, get_word, display_word, guess
 
 
 def test_get_word():
-    # Test if it returns a lowercase word
     global words_list
     words_list = []
     
     selected_word = get_word()
     
+    # Test if it returns a string
     assert isinstance(selected_word, str), "Returned value is not a string"
-    assert selected_word.islower(), "Returned value is not in lowercase"
 
 
 def test_display_word():

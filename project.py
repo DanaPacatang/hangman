@@ -60,8 +60,8 @@ def hangman(i=0):
 
 
 def get_word():
-    web2lowerset = get_english_words_set(['web2'], lower=True)
-    word_list = list(web2lowerset)
+    with open("words.txt", "r") as file:
+        word_list = [line.strip() for line in file if line.strip()]
     
     while True:
         selected_word = random.choice(word_list)
