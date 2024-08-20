@@ -47,3 +47,5 @@ A video demo of the project can be [viewed here](youtube.com).
 This project is a part of the [CS50 Python course](https://www.edx.org/learn/python/harvard-university-cs50-s-introduction-to-programming-with-python).
 
 The word list used in this project was sourced from [Xethron's Hangman project on GitHub](https://github.com/Xethron/Hangman).
+
+The ASCII art for the hangman was adapted from [chrishorton's hangmanwordbank.py on Github](https://gist.github.com/chrishorton/8510732aa9a80a03c829b09f12e20d9c).
