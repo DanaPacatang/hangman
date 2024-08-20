@@ -1,6 +1,66 @@
 from project import hangman, get_word, display_word, guess
 
 
+def test_hangman():
+    # Test all hangman variations
+    assert hangman() == r'''
+    +---+
+    |   |
+        |
+        |
+        |
+        |
+    ========='''
+    assert hangman(1) == r'''
+    +---+
+    |   |
+    O   |
+        |
+        |
+        |
+    ========='''
+    assert hangman(2) == r'''
+    +---+
+    |   |
+    O   |
+    |   |
+        |
+        |
+    ========='''
+    assert hangman(3) == r'''
+    +---+
+    |   |
+    O   |
+    /|  |
+        |
+        |
+    ========='''
+    assert hangman(4) == r'''
+    +---+
+    |   |
+    O   |
+    /|\ |
+        |
+        |
+    ========='''
+    assert hangman(5) == r'''
+    +---+
+    |   |
+    O   |
+    /|\ |
+    /   |
+        |
+    ========='''
+    assert hangman(6) == r'''
+    +---+
+    |   |
+    O   |
+    /|\ |
+    / \ |
+        |
+    ========='''
+
+
 def test_get_word():
     global words_list
     words_list = []
