@@ -1,4 +1,3 @@
-from english_words import get_english_words_set
 from words import words_list
 import random
 
